@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "65835315194eaa9a2717",
+  "position": {
+    "x": 199.59658650116367,
+    "y": 49.15438324282389,
+    "z": 2,
+    "height": 99.798293250581835,
+    "width": 174.2746314972847,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "agg_daily_region"
+                    }
+                  },
+                  "Property": "Peak Demand MW"
+                }
+              },
+              "queryRef": "agg_daily_region.Peak Demand MW",
+              "nativeQueryRef": "Peak Demand MW"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "agg_daily_region"
+                  }
+                },
+                "Property": "Peak Demand MW"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "93133e7f9e162b8574d9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "agg_daily_region"
+              }
+            },
+            "Property": "Peak Demand MW"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
