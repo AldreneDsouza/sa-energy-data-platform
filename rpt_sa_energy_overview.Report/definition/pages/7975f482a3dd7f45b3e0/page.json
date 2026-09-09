@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "7975f482a3dd7f45b3e0",
+  "displayName": "Operational Analytics",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920
+}

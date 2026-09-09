@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a59c7aabec9315866906",
+  "position": {
+    "x": 49.15438324282389,
+    "y": 49.15438324282389,
+    "z": 1,
+    "height": 99.798293250581835,
+    "width": 140.0155159038014,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "agg_daily_region"
+                    }
+                  },
+                  "Property": "Avg Spot Price"
+                }
+              },
+              "queryRef": "agg_daily_region.Avg Spot Price",
+              "nativeQueryRef": "Avg Spot Price"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "agg_daily_region"
+                  }
+                },
+                "Property": "Avg Spot Price"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "203fbf73ddf9b23c780f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "agg_daily_region"
+              }
+            },
+            "Property": "Avg Spot Price"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

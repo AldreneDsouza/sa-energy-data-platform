@@ -1,0 +1,253 @@
+table agg_daily_region
+	lineageTag: d0ec4b38-0c0c-43f3-b708-1ea8a65184d4
+	sourceLineageTag: [dbo].[agg_daily_region]
+
+	measure 'Avg Spot Price' = AVERAGE(fact_dispatch_interval[spot_price])
+		lineageTag: 7968b049-d31e-40c9-82b4-26060b6211b6
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Peak Demand MW' = MAX(fact_dispatch_interval[total_demand_mw])
+		lineageTag: 02f7aad4-fa34-4c62-9bbc-8c0e3480c6c1
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Demand MW' = AVERAGE(fact_dispatch_interval[total_demand_mw])
+		lineageTag: 74cb0200-6177-43c1-8ef9-9cf009deeb79
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Negative Price Intervals' =
+			
+			CALCULATE(
+			    COUNTROWS(fact_dispatch_interval),
+			    fact_dispatch_interval[is_negative_price] = TRUE()
+			)
+		formatString: 0
+		lineageTag: 1606e160-fc0b-408d-9d4c-7e924637a1c1
+
+		changedProperty = Name
+
+	measure 'Negative Price %' =
+			
+			DIVIDE(
+			    [Negative Price Intervals],
+			    COUNTROWS(fact_dispatch_interval),
+			    0
+			) * 100
+		lineageTag: 9e487fe0-1e1f-4f3a-8b6c-cdc49aff7909
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Energy Served MWh' = SUMX(fact_dispatch_interval, fact_dispatch_interval[total_demand_mw] / 12)
+		lineageTag: a79e6343-1da0-4e08-864e-68ef5eef367b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: a7025ed4-0db4-43d3-bd33-2ed5b712dc55
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_key
+		dataType: int64
+		formatString: 0
+		lineageTag: aca9107b-f73b-4751-9f82-9563f59ac077
+		sourceLineageTag: region_key
+		summarizeBy: none
+		sourceColumn: region_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column settlement_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 33c121b3-209c-4324-88ef-a7ad5820ff6c
+		sourceLineageTag: settlement_date
+		summarizeBy: none
+		sourceColumn: settlement_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column interval_count
+		dataType: int64
+		formatString: 0
+		lineageTag: a82aceee-adfe-4297-8fd5-57df1584e4ec
+		sourceLineageTag: interval_count
+		summarizeBy: sum
+		sourceColumn: interval_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_price
+		dataType: double
+		lineageTag: 2b8ae637-05cd-4283-a5c9-6809a68a891b
+		sourceLineageTag: avg_price
+		summarizeBy: sum
+		sourceColumn: avg_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column min_price
+		dataType: double
+		lineageTag: d5763b42-7212-4ec7-900f-ae079cec5c14
+		sourceLineageTag: min_price
+		summarizeBy: sum
+		sourceColumn: min_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_price
+		dataType: double
+		lineageTag: 0df45509-345c-479f-b84b-53b7de1574b3
+		sourceLineageTag: max_price
+		summarizeBy: sum
+		sourceColumn: max_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_volatility
+		dataType: double
+		lineageTag: e7fd5aa3-6b5c-4968-b126-b6ebd0e06137
+		sourceLineageTag: price_volatility
+		summarizeBy: sum
+		sourceColumn: price_volatility
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_demand_mw
+		dataType: double
+		lineageTag: eda7bd5e-2e03-4c45-a472-7a7e4500fbab
+		sourceLineageTag: avg_demand_mw
+		summarizeBy: sum
+		sourceColumn: avg_demand_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column peak_demand_mw
+		dataType: double
+		lineageTag: 5b8833d9-c8ee-4372-8b15-2bc302c1ddc2
+		sourceLineageTag: peak_demand_mw
+		summarizeBy: sum
+		sourceColumn: peak_demand_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column min_demand_mw
+		dataType: double
+		lineageTag: c3bd872a-1ded-485e-8944-808c22b4c6e0
+		sourceLineageTag: min_demand_mw
+		summarizeBy: sum
+		sourceColumn: min_demand_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_reserve_mw
+		dataType: double
+		lineageTag: 9be6171a-1d07-4212-8bd8-ef9022627138
+		sourceLineageTag: avg_reserve_mw
+		summarizeBy: sum
+		sourceColumn: avg_reserve_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column negative_intervals
+		dataType: int64
+		formatString: 0
+		lineageTag: 28402ccd-8bb9-40f5-99ce-c1110b7ffeb1
+		sourceLineageTag: negative_intervals
+		summarizeBy: sum
+		sourceColumn: negative_intervals
+
+		annotation SummarizationSetBy = Automatic
+
+	column spike_intervals
+		dataType: int64
+		formatString: 0
+		lineageTag: 58258f33-54d4-488e-9711-2cc6a71a884c
+		sourceLineageTag: spike_intervals
+		summarizeBy: sum
+		sourceColumn: spike_intervals
+
+		annotation SummarizationSetBy = Automatic
+
+	column importing_intervals
+		dataType: int64
+		formatString: 0
+		lineageTag: 85b22477-1da8-4e66-ab2c-875b8c0000b2
+		sourceLineageTag: importing_intervals
+		summarizeBy: sum
+		sourceColumn: importing_intervals
+
+		annotation SummarizationSetBy = Automatic
+
+	column energy_mwh
+		dataType: double
+		lineageTag: 28651af8-b66c-45d6-a48a-c040712266eb
+		sourceLineageTag: energy_mwh
+		summarizeBy: sum
+		sourceColumn: energy_mwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column negative_price_pct
+		dataType: double
+		lineageTag: 89f31e1b-40af-40e4-8d52-691371d3680a
+		sourceLineageTag: negative_price_pct
+		summarizeBy: sum
+		sourceColumn: negative_price_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column import_dependency_pct
+		dataType: double
+		lineageTag: d49658b8-0d1d-4320-abe3-ad37d73f8e93
+		sourceLineageTag: import_dependency_pct
+		summarizeBy: sum
+		sourceColumn: import_dependency_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition agg_daily_region = entity
+		mode: directLake
+		source
+			entityName: agg_daily_region
+			expressionSource: 'DirectLake - lh_sa_energy'
+

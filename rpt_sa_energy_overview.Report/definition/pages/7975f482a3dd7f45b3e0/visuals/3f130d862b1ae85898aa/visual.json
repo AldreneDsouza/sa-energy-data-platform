@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3f130d862b1ae85898aa",
+  "position": {
+    "x": 687.71474878444087,
+    "y": 171.15072933549433,
+    "z": 2,
+    "height": 354.74878444084277,
+    "width": 645.70502431118314,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "day_of_week"
+                }
+              },
+              "queryRef": "dim_date.day_of_week",
+              "nativeQueryRef": "day_of_week",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "agg_daily_region"
+                    }
+                  },
+                  "Property": "Avg Spot Price"
+                }
+              },
+              "queryRef": "agg_daily_region.Avg Spot Price",
+              "nativeQueryRef": "Avg Spot Price"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "agg_daily_region"
+                  }
+                },
+                "Property": "Avg Spot Price"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Price by Day of Week (1=Sunday)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "92c914b30d745841a80e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "agg_daily_region"
+              }
+            },
+            "Property": "Avg Spot Price"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7b5d5a529136d8525dfe",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "day_of_week"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

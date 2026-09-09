@@ -1,0 +1,107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "bbd7f34a7188ce4ed391",
+  "position": {
+    "x": 70.0162074554295,
+    "y": 539.902755267423,
+    "z": 3,
+    "height": 269.17341977309565,
+    "width": 603.6952998379254,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_dispatch_interval"
+                    }
+                  },
+                  "Property": "settlement_hour"
+                }
+              },
+              "queryRef": "fact_dispatch_interval.settlement_hour",
+              "nativeQueryRef": "Sum of settlement_hour",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "agg_daily_region"
+                    }
+                  },
+                  "Property": "Negative Price Intervals"
+                }
+              },
+              "queryRef": "agg_daily_region.Negative Price Intervals",
+              "nativeQueryRef": "Negative Price Intervals"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "agg_daily_region"
+                  }
+                },
+                "Property": "Negative Price Intervals"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c0b00bb7fcb00db17f44",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_dispatch_interval"
+              }
+            },
+            "Property": "settlement_hour"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f3ed4c4dff5e4274a1f5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "agg_daily_region"
+              }
+            },
+            "Property": "Negative Price Intervals"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

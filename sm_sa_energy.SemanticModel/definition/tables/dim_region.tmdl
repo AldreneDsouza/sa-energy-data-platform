@@ -1,0 +1,76 @@
+table dim_region
+	lineageTag: 6d02667b-b5a7-4933-8843-52adafb37b69
+	sourceLineageTag: [dbo].[dim_region]
+
+	column region_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 83a41b58-6b61-4c8a-9e85-7e18b6e2f1af
+		sourceLineageTag: region_key
+		summarizeBy: none
+		sourceColumn: region_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_id
+		dataType: string
+		lineageTag: 6dd6ab62-ff1b-42b6-bcc6-201faf399efa
+		sourceLineageTag: region_id
+		summarizeBy: none
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		dataType: string
+		lineageTag: 835d4c8a-6d04-4532-b90c-6e4b14b33a55
+		sourceLineageTag: region_name
+		summarizeBy: none
+		sourceColumn: region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_code
+		dataType: string
+		lineageTag: 0d16d1ae-a4c3-47cc-b711-82a3ba44e98b
+		sourceLineageTag: state_code
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column capital_city
+		dataType: string
+		lineageTag: fb72891e-75d0-4a6d-893c-2f5109e24212
+		sourceLineageTag: capital_city
+		summarizeBy: none
+		sourceColumn: capital_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column population
+		dataType: int64
+		formatString: 0
+		lineageTag: 707beaa8-0cdb-4295-b2e7-e933bfadaf01
+		sourceLineageTag: population
+		summarizeBy: sum
+		sourceColumn: population
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_focus_region
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2c035fa7-695d-43a0-acd5-c35ef9b1989a
+		sourceLineageTag: is_focus_region
+		summarizeBy: none
+		sourceColumn: is_focus_region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_region = entity
+		mode: directLake
+		source
+			entityName: dim_region
+			expressionSource: 'DirectLake - lh_sa_energy'
+

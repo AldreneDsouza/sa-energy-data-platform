@@ -1,0 +1,196 @@
+table fact_dispatch_interval
+	lineageTag: 4374a894-91f9-4509-beec-3cdddf779737
+	sourceLineageTag: [dbo].[fact_dispatch_interval]
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f33c83c-ad9c-433b-8732-3be27872b889
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f80a5fcd-035c-4c1c-80a8-f89affdfddad
+		sourceLineageTag: region_key
+		summarizeBy: none
+		sourceColumn: region_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column dispatch_interval
+		dataType: string
+		lineageTag: c93e0157-a606-44e3-a729-b86d2100c1ac
+		sourceLineageTag: dispatch_interval
+		summarizeBy: none
+		sourceColumn: dispatch_interval
+
+		annotation SummarizationSetBy = Automatic
+
+	column settlement_ts
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 814b5673-7f64-4b1a-a64b-6bc4de332c79
+		sourceLineageTag: settlement_ts
+		summarizeBy: none
+		sourceColumn: settlement_ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column settlement_ts_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a738a4d3-4a61-4464-a02a-47ce6edf8728
+		sourceLineageTag: settlement_ts_utc
+		summarizeBy: none
+		sourceColumn: settlement_ts_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	column settlement_hour
+		dataType: int64
+		formatString: 0
+		lineageTag: 47ee26b2-2a92-4ac3-b3c9-a2ed6870fb89
+		sourceLineageTag: settlement_hour
+		summarizeBy: sum
+		sourceColumn: settlement_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column settlement_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0e011a27-27ff-4d76-bf83-c015bb0500a7
+		sourceLineageTag: settlement_date
+		summarizeBy: none
+		sourceColumn: settlement_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column spot_price
+		dataType: double
+		lineageTag: e9fc121a-a089-4a0e-80af-4d16a5f8e336
+		sourceLineageTag: spot_price
+		summarizeBy: sum
+		sourceColumn: spot_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_demand_mw
+		dataType: double
+		lineageTag: 2a01b679-8963-4817-9228-c6d524abb139
+		sourceLineageTag: total_demand_mw
+		summarizeBy: sum
+		sourceColumn: total_demand_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column available_generation_mw
+		dataType: double
+		lineageTag: b8424697-93a0-4412-b6f8-465627bc7ffd
+		sourceLineageTag: available_generation_mw
+		summarizeBy: sum
+		sourceColumn: available_generation_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column demand_forecast_mw
+		dataType: double
+		lineageTag: ccb8e47d-b563-4a30-94c2-9f119cdd77c4
+		sourceLineageTag: demand_forecast_mw
+		summarizeBy: sum
+		sourceColumn: demand_forecast_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_interchange_mw
+		dataType: double
+		lineageTag: 7ffe8569-bf3b-49a2-8d3a-cded241ed2e1
+		sourceLineageTag: net_interchange_mw
+		summarizeBy: sum
+		sourceColumn: net_interchange_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column reserve_margin_mw
+		dataType: double
+		lineageTag: fd6e0515-7361-46f2-8bc1-5f9e47dd62b2
+		sourceLineageTag: reserve_margin_mw
+		summarizeBy: sum
+		sourceColumn: reserve_margin_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_negative_price
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 33f94ea2-f803-4f63-ad2f-5681ae40de41
+		sourceLineageTag: is_negative_price
+		summarizeBy: none
+		sourceColumn: is_negative_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_price_spike
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4b6d68bd-0666-4eeb-ac26-fb68a91e5a2c
+		sourceLineageTag: is_price_spike
+		summarizeBy: none
+		sourceColumn: is_price_spike
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_importing
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a7e3e1a4-09ed-4d5a-aa36-afe7b778a010
+		sourceLineageTag: is_importing
+		summarizeBy: none
+		sourceColumn: is_importing
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_error_mw
+		dataType: double
+		lineageTag: b7cf53c8-1296-42bf-b756-090dcc06f28f
+		sourceLineageTag: forecast_error_mw
+		summarizeBy: sum
+		sourceColumn: forecast_error_mw
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column _gold_processed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f3249016-086a-481c-a1ec-f31fc1858024
+		sourceLineageTag: _gold_processed_at
+		summarizeBy: none
+		sourceColumn: _gold_processed_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_dispatch_interval = entity
+		mode: directLake
+		source
+			entityName: fact_dispatch_interval
+			expressionSource: 'DirectLake - lh_sa_energy'
+

@@ -1,0 +1,16 @@
+relationship f55808e5-b45c-cced-1f6e-4fe95846b653
+	fromColumn: fact_dispatch_interval.date_key
+	toColumn: dim_date.date_key
+
+relationship c3b4988c-cc12-5201-18c7-51058fa402cc
+	fromColumn: agg_daily_region.date_key
+	toColumn: dim_date.date_key
+
+relationship f5c8015b-cc7a-ee5e-1b36-f9d7528ed843
+	fromColumn: agg_daily_region.region_key
+	toColumn: dim_region.region_key
+
+relationship dfda2aeb-cf20-a917-cfd8-1729833cc882
+	fromColumn: fact_dispatch_interval.region_key
+	toColumn: dim_region.region_key
+
